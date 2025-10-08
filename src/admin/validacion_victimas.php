@@ -78,7 +78,7 @@
 
 									<select id="main-search-op" class="form-control" required="true">
 										<option value="" selected> -- Selecciona -- </option>
-										<option value="unknown_age">Edad y sexo desconocidos</option>
+										<option value="unknown_age">Edad desconocida</option>
 										<!--<option value="unknown_gener">Sexo desconocido</option>-->
 										<option value="crimes_by_minor">Delitos cometidos a menores de edad </option>
 										<option value="crimes_by_unknown_gener">Delitos para sexo desconocido</option>
