@@ -2,9 +2,14 @@
 session_start();
 include("../../../../service/connection.php");
 
-$conn = $connections['sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'sicap'
+));
 
-$options = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
+$options = array(
+    "SendStreamParamsAtExec" => 0,
+    "QueryTimeout" => 0
+);
 
 $myparams['fecha_inicio'] = $_POST['fecha_inicial'];
 $myparams['fechai_fin'] = $_POST['fecha_final'];
@@ -16,8 +21,8 @@ $procedure_params = array(
     array(&$myparams['tipo'], SQLSRV_PARAM_IN)
 );
 
-$sql = "EXEC dbo.nueva_norma_tecnica @fecha_inicio = ?, @fechai_fin = ?, @tipo = ?;";
-$stmt = sqlsrv_prepare($conn, $sql, $procedure_params, array());
+$sql = "EXEC dbo.nnt @fecha_inicio = ?, @fechai_fin = ?, @tipo = ?;";
+$stmt = sqlsrv_prepare($conn, $sql, $procedure_params, $options);
 
 if (sqlsrv_execute($stmt) === false) {
 

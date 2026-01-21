@@ -4,7 +4,9 @@ include("../../../../service/connection.php");
 include('../../../../service/validate_injection_string.php');
 include("../common.php");
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 $to_update = isset($_POST['to_update']) ? $_POST['to_update'] : null;
 
 if($conn && $to_update != null){

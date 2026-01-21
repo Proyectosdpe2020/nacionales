@@ -62,7 +62,7 @@ function searchMicrodata(){
                         attr: {
                             data: null,
                             url_service_file: 'templates/excel/'+microdata_op[serach_option].service_file,
-                            file_name: microdata_op[serach_option].file_name+'_'+array_months[search_date.getMonth()]+'_'+search_date.getFullYear()+'.xlsx'
+                            file_name: microdata_op[serach_option].file_name+'_'+array_months[search_date.getMonth()]+'_'+search_date.getFullYear()
                         },
                         response: true
                     }

@@ -17,7 +17,6 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 		<link rel="stylesheet" href="assets/css/main.css?v=<?php echo time(); ?>"/>
 		<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>"/>
 
-		<!--<link rel="stylesheet" href="../../css/styles.css">-->
 		<link rel="stylesheet" href="../../css/styles.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="../../css/dropdown-style.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="../../css/own-datatable-style.css?v=<?php echo time(); ?>">

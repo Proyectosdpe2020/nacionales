@@ -3,7 +3,9 @@ session_start();
 include("../../../../service/connection.php");
 include("../common.php");
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 $id = isset($_POST['id']) ? $_POST['id'] : null;
 $cid = isset($_POST['cid']) ? $_POST['cid'] : null;
 

@@ -1,9 +1,11 @@
 <?php
 session_start();
-include('D:/xampp/htdocs/sgr-dpe/service/connection.php');
-require('D:/xampp/htdocs/sgr-dpe/fpdf/fpdf.php');
+include('../../../../service/connection.php');
+require('../../../../fpdf/fpdf.php');
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 
 if (empty($_POST['mesInicio']) || empty($_POST['mesFin']) || empty($_POST['anio'])) {
     die('Error: Todos los campos son obligatorios.');
@@ -44,14 +46,14 @@ if ($conn && $mesInicio && $mesFin && $anio) {
     $pdf->Rect(0, 0, 297, 50, 'F');
 
     // Espacios para logos
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/1.3 FGE dorado.png', 20, 10, 30);
+    $pdf->Image('../../../../assets/img/1.3 FGE dorado.png', 20, 10, 30);
     $pageHeight = $pdf->GetPageHeight();
     $pageWidth = $pdf->GetPageWidth();
     $imageWidth = 40;
     $imageHeight = 20;
     $x = 10;
     $y = $pageHeight - $imageHeight - 10;
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
+    $pdf->Image('../../../../assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
 
     // Encabezado
     $pdf->SetTextColor(255, 255, 255);
@@ -147,8 +149,8 @@ ORDER BY Distrito, DelitoAgrupado, Año DESC;
         $pdf->SetLeftMargin($leftMargin);
         $pdf->SetRightMargin($pageWidth - $leftMargin - $totalContentWidth);
         $pdf->AddPage();
-        $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/fge.png', 20, 10, 20);
-        $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', 254, 10, 35);
+        $pdf->Image('../../../../assets/img/fge.png', 20, 10, 20);
+        $pdf->Image('../../../../assets/img/Mich.png', 254, 10, 35);
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(0, 10, utf8_decode(mb_strtoupper("FISCALÍA GENERAL DEL ESTADO DE MICHOACÁN")), 0, 1, 'C');
         $pdf->SetFont('Arial', 'B', 10);

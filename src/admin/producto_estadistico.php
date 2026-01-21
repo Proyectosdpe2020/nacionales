@@ -1,5 +1,5 @@
 <?php session_start();
-include('D:/xampp/htdocs/sgr-dpe/service/connection.php');
+include('../../service/connection.php');
 if ($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_SESSION['user_data']['id'] == 8) {
     header('Location: validacion_victimas.php');
     exit();

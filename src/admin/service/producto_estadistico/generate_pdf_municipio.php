@@ -1,9 +1,11 @@
 <?php
 session_start();
-include('D:/xampp/htdocs/sgr-dpe/service/connection.php');
-require('D:/xampp/htdocs/sgr-dpe/fpdf/fpdf.php');
+include('../../../../service/connection.php');
+require('../../../../fpdf/fpdf.php');
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 
 if (empty($_POST['mesInicio']) || empty($_POST['mesFin']) || empty($_POST['anio'])) {
     die('Error: Todos los campos son obligatorios.');
@@ -82,14 +84,14 @@ FROM Totales;
     $pdf->Rect(0, 0, 297, 50, 'F');
 
     // Espacios para logos
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/1.3 FGE dorado.png', 20, 10, 30);
+    $pdf->Image('../../../../assets/img/1.3 FGE dorado.png', 20, 10, 30);
     $pageHeight = $pdf->GetPageHeight();
     $pageWidth = $pdf->GetPageWidth();
     $imageWidth = 40;
     $imageHeight = 20;
     $x = 10;
     $y = $pageHeight - $imageHeight - 10;
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
+    $pdf->Image('../../../../assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
 
     //Encabezado
     $pdf->SetTextColor(255, 255, 255);
@@ -146,8 +148,8 @@ FROM Totales;
     $pdf->MultiCell(0, 5, utf8_decode('(S.I. y S.A.)'), 0, 'C');
 
     $pdf->AddPage();
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/fge.png', 20, 10, 20);
-    $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', 254, 10, 35);
+    $pdf->Image('../../../../assets/img/fge.png', 20, 10, 20);
+    $pdf->Image('../../../../assets/img/Mich.png', 254, 10, 35);
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->Cell(0, 7, utf8_decode('FISCALÍA GENERAL DEL ESTADO DE MICHOACÁN'), 0, 1, 'C');
     $pdf->SetFont('Arial', 'B', 9);
@@ -256,14 +258,14 @@ ORDER BY Fiscalia, Municipio, SUM(COUNT(*)) OVER (PARTITION BY Fiscalia, Municip
         $pdf->Rect(0, 0, 297, 50, 'F');
 
         // Espacios para logos
-        $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/1.3 FGE dorado.png', 20, 10, 30);
+        $pdf->Image('../../../../assets/img/1.3 FGE dorado.png', 20, 10, 30);
         $pageHeight = $pdf->GetPageHeight();
         $pageWidth = $pdf->GetPageWidth();
         $imageWidth = 40;
         $imageHeight = 20;
         $x = 10;
         $y = $pageHeight - $imageHeight - 10;
-        $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
+        $pdf->Image('../../../../assets/img/Mich.png', $x, $y, $imageWidth, $imageHeight);
 
         //Encabezado
         $pdf->SetTextColor(255, 255, 255);
@@ -336,8 +338,8 @@ ORDER BY Fiscalia, Municipio, SUM(COUNT(*)) OVER (PARTITION BY Fiscalia, Municip
 
         foreach ($municipios as $municipio => $delitos) {
             $pdf->AddPage();
-            $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/fge.png', 20, 10, 20);
-            $pdf->Image('D:/xampp/htdocs/sgr-dpe/assets/img/Mich.png', 254, 10, 35);
+            $pdf->Image('../../../../assets/img/fge.png', 20, 10, 20);
+            $pdf->Image('../../../../assets/img/Mich.png', 254, 10, 35);
             $pdf->SetFont('Arial', 'B', 12);
             $pdf->Cell(0, 10, utf8_decode(mb_strtoupper("FISCALÍA GENERAL DEL ESTADO DE MICHOACÁN")), 0, 1, 'C');
             $pdf->SetFont('Arial', 'B', 10);
@@ -613,10 +615,10 @@ ORDER BY Fiscalia, Municipio, SUM(COUNT(*)) OVER (PARTITION BY Fiscalia, Municip
                 } else {
                     //Determinar flecha y color
                     if ($porcentajeAnoMinus1 > 0) {
-                        $flecha = 'D:/xampp/htdocs/sgr-dpe/assets/img/up.png'; // Ruta de la imagen de flecha hacia arriba
+                        $flecha = '../../../../assets/img/up.png'; // Ruta de la imagen de flecha hacia arriba
                         $color = [255, 0, 0];  // Rojo para positivo
                     } elseif ($porcentajeAnoMinus1 < 0) {
-                        $flecha = 'D:/xampp/htdocs/sgr-dpe/assets/img/down.png'; // Ruta de la imagen de flecha hacia abajo
+                        $flecha = '../../../../assets/img/down.png'; // Ruta de la imagen de flecha hacia abajo
                         $color = [0, 0, 255]; // Azul para negativo
                     } else {
                         $flecha = '';  // Sin flecha

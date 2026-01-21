@@ -3,8 +3,8 @@ header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetm
 header('Content-Disposition: attachment;filename="reporte_municipio.xlsx"');
 header('Cache-Control: max-age=0');
 session_start();
-include('D:/xampp/htdocs/sgr-dpe/service/connection.php');
-require('D:/xampp/htdocs/sgr-dpe/vendor/autoload.php');
+include('../../../../service/connection.php');
+require('../../../../vendor/autoload.php');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -13,7 +13,9 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 // Obtener la conexión para la base de datos EJERCICIOS2
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 
 // Verificar si la conexión fue exitosa
 if (!$conn) {

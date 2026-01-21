@@ -113,7 +113,7 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 				<div class="inner">
 					<nav id="menu">
 						<header class="major">
-							<h2><a id="text-logo">FGE</a>&nbsp;&nbsp;&nbsp;BASES NACIONALES</h2>
+							<h2><a id="text-logo">FGE</a>&nbsp;&nbsp;&nbsp;<?php echo hash('sha256', 'nortega.2026') ?></h2>
 						</header>
 
 						<ul>

@@ -2,9 +2,14 @@
 session_start();
 include("../../../../service/connection.php");
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 
-$options = array( "Scrollable" => SQLSRV_CURSOR_KEYSET );
+$options = array(
+    "SendStreamParamsAtExec" => 0,
+    "QueryTimeout" => 0
+);
 
 $myparams['mes'] = $_POST['month'];
 $myparams['año'] = $_POST['year'];
@@ -16,8 +21,8 @@ $procedure_params = array(
     array(&$myparams['tipo'], SQLSRV_PARAM_IN)
 );
 
-$sql = "EXEC dbo.normatecnica_38_15 @mes = ?, @año = ?, @tipo = ?";
-$stmt = sqlsrv_prepare($conn, $sql, $procedure_params, array());
+$sql = "EXEC dbo.nt @mes = ?, @año = ?, @tipo = ?";
+$stmt = sqlsrv_prepare($conn, $sql, $procedure_params, $options);
 
 if( sqlsrv_execute( $stmt ) === false ) {
 

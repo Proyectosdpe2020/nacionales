@@ -3,7 +3,9 @@ session_start();
 include("../../../../service/connection.php");
 include("../common.php");
 
-$conn = $connections['sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'sicap'
+));
 
 $month = $_POST['month'];
 $year = $_POST['year'];

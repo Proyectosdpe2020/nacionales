@@ -2,8 +2,10 @@
 session_start();
 include('connection.php');
 include('validate_injection_string.php');
-$conn = $connections['incidencia_sicap']['conn'];
-$db = $connections['incidencia_sicap']['db'];
+
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 
 $data = json_decode($_POST['auth'], true );
 
