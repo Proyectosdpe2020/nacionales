@@ -5,7 +5,9 @@ include("../../../../service/connection.php");
 
 $params = array();
 $options = array( "Scrollable" => SQLSRV_CURSOR_KEYSET );
-$conn = $connections['sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'sicap'
+));
 $db_table = '[dbo].[CatModalidadesEstadisticas]';
 
 $elements = array();

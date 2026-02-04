@@ -3,7 +3,9 @@ session_start();
 include("../../../../service/connection.php");
 include("../common.php");
 
-$conn = $connections['incidencia_sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'incidencia_sicap'
+));
 $year_month = isset($_POST['year_month']) ? $_POST['year_month'] : null;
 
 if($conn && $year_month != null){

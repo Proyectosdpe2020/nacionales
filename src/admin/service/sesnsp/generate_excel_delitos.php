@@ -17,7 +17,7 @@ header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetm
 header("Content-Disposition: attachment;filename=\"$nombreArchivo\"");
 header('Cache-Control: max-age=0');
 
-require('D:/xampp/htdocs/sgr-dpe/vendor/autoload.php');
+require('../../../../vendor/autoload.php');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;

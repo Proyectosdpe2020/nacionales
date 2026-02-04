@@ -260,4 +260,3 @@ $procedure_op = array(
 echo json_encode($procedure_op[$module_search_op][$search_op][$subsec_search_op]);
 
 ?>
-

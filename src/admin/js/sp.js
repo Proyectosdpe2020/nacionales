@@ -27,7 +27,7 @@ function searchSPData(){
 
 function getProcedureOP(attr){
     $.ajax({
-        url: 'service/get_sp_procedure_op.php',
+        url: 'service/sp/get_sp_procedure_op.php',
         type: 'POST',
         dataType: 'JSON',
         data: {
@@ -99,7 +99,7 @@ function getSPService(attr){
     if(array_op.length > 0 && array_op.length > array_op_index){
 
         get_retransmission_service({
-            url_service_file: 'service/get_sense_procedure_data.php',
+            url_service_file: 'service/sp/get_sense_procedure_data.php',
             parameters: {
                 year: search_date,
                 procedure_op: array_op[array_op_index],
@@ -212,7 +212,7 @@ function changeSPOptions(){
 function getSPOptions(attr){
 
     $.ajax({
-        url: 'service/get_sp_op_by_procedure_op.php',
+        url: 'service/sp/get_sp_op_by_procedure_op.php',
         type: 'POST',
         dataType: 'JSON',
         data: {
@@ -269,7 +269,7 @@ function changeModuleOptions(){
 function getSPOptionsByModule(attr){
 
     $.ajax({
-        url: 'service/get_sp_op_by_module_op.php',
+        url: 'service/sp/get_sp_op_by_module_op.php',
         type: 'POST',
         dataType: 'JSON',
         data: {

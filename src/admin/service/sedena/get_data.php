@@ -2,7 +2,9 @@
 session_start();
 include("../../../service/connection.php");
 
-$conn = $connections['sicap']['conn'];
+$conn = getConn((object) array(
+    'db' => 'sicap'
+));
 $db_table = '[dbo].[Usuario]';
 
 $data = array();
