@@ -110,7 +110,7 @@ if ($_SESSION['user_data']['id'] == 5) {
             </header>
 
             <div class="background-header">
-                <h1>NUEVA NORMA TÉCNICA</h1>
+                <h1>SIIID</h1>
             </div>
 
             <div class="inner">
@@ -162,7 +162,7 @@ if ($_SESSION['user_data']['id'] == 5) {
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="senap.php">SENAP</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="microdato.php">Microdato</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="avp.php">Exportar base de datos histórica</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="norma_tecnica.php">Norma técnica</a></li>
+                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="norma_tecnica.php">Norma Técnica 38-15</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="censo_procu.php">Censo procuración de justicia</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="incidencia_sesesp.php">Incidencia delictiva SESESP</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="validacion_victimas.php">Validación de víctimas</a></li>
@@ -171,7 +171,7 @@ if ($_SESSION['user_data']['id'] == 5) {
                         <?php
                         }
                         ?>
-                        <li class="selected"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="#">Nueva norma técnica</a></li>
+                        <li class="selected"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="#">SIIID</a></li>
                     </ul>
                 </nav>
 
