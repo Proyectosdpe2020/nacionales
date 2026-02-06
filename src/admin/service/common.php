@@ -5,14 +5,21 @@ $options = array( "Scrollable" => SQLSRV_CURSOR_KEYSET );
 
 function createQuery($attr){
 
-	$sql = "INSERT INTO $db_table
-				( $columns )
-				VALUES
-				( $values )
-            SELECT SCOPE_IDENTITY()";
+	$i = 1;
+	$sql_cols = '';
+	$sql_col_vals = '';
 
-	if($conn){
-		$stmt = sqlsrv_query( $conn, $sql);
+	foreach($attr->data as $element){
+
+		$sql_cols.= $i+1 > count($attr->data) ? "$element->column" : "$element->column, ";
+		$element->value = $element->type_value == 'text' ? "'$element->value'" : "$element->value";
+		$sql_col_vals.= $i+1 > count($attr->data) ? "$element->value" : "$element->value, ";
+	}
+
+	$sql = "INSERT INTO $attr->db_table ( $sql_cols ) VALUES ( $sql_col_vals ) SELECT SCOPE_IDENTITY()";
+
+	if($attr->conn){
+		$stmt = sqlsrv_query( $attr->conn, $sql);
 
 		sqlsrv_next_result($stmt); 
 		sqlsrv_fetch($stmt); 
@@ -32,9 +39,7 @@ function createQuery($attr){
             'data' => null
         );
 	}
-
 }
-
 
 function executeDumpQuery($attr){
 
@@ -44,10 +49,7 @@ function executeDumpQuery($attr){
 	$search_table_param = $attr->db_query_params->db_search_table;
 	$insert_conditions_param = $attr->db_query_params->db_insert_conditions;
 
-
 	$sql = "INSERT INTO $insert_table_param $insert_fields_param SELECT $search_fields_param FROM $search_table_param WHERE $insert_conditions_param";
-
-
 
 	if($attr->db_connection_params->conn){
 
@@ -59,7 +61,6 @@ function executeDumpQuery($attr){
 				'state' => 'fail',
 				'data' => null
 			);
-
 	   	}
 		else{
 
@@ -87,10 +88,7 @@ function executeDumpQuery($attr){
 					'data' => null
 				);
 			}
-
 		}
-
-		
 	}
 	else{
 
