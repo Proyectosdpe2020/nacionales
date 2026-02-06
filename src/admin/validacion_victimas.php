@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>SBN</title>
+		<title>Nacionales</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 		<meta http-equiv="cache-control" content="no-cache"/>
@@ -123,6 +123,7 @@
 										<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="producto_estadistico.php">Producto estadístico</a></li>
 										<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sedena.php">Consulta SEDENA</a></li>
 										<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sesnsp.php">SIIID</a></li>
+										<li onclick="goToSlideGenerator()"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a>Presentaciones</a></li>
 <?php
 									}
 									else{

@@ -367,6 +367,17 @@ function get_retransmission_service(attr){
             showLoading(true);
         }
 
+        if(attr.hasOwnProperty('data')){
+            if(attr.data != null){
+                attr.parameters = attr.parameters != null ? {
+                    ...attr.parameters,
+                    ...attr.data
+                } : {
+                    ...attr.data
+                }
+            }
+        }
+
         $.ajax({
             url: attr.url_service_file,
             type: 'POST',
@@ -381,7 +392,7 @@ function get_retransmission_service(attr){
     
             for(os_function in attr.on_success.functions){
                 if(attr.on_success.functions[os_function].response){
-                    attr.on_success.functions[os_function].attr.data = response;
+                    attr.on_success.functions[os_function].attr.data = response.data != undefined ? response.data : response;
                 }
                 attr.on_success.functions[os_function].function(attr.on_success.functions[os_function].attr);
             }
@@ -961,4 +972,48 @@ function showLoading(ind){
         $(".loader-div").addClass("loader");
     else
         $(".loader-div").removeClass("loader");
+}
+
+function goToSlideGenerator(){
+
+    get_retransmission_service({
+        url_service_file: 'service/slide_generator/create_ses_key.php',
+        parameters: null,
+        show_loading: true,
+        on_success: {
+            functions: [
+                {
+                    function: get_retransmission_service,
+                    attr: {
+                        url_service_file: 'service/slide_generator/get_slide_generator_url.php',
+                        parameters: null,
+                        show_loading: true,
+                        on_success: {
+                            functions: [
+                                {
+                                    function: goToSG,
+                                    attr: {
+                                        data: null
+                                    },
+                                    response: true
+                                }
+                            ]
+                        }
+                    },
+                    response: true
+                }
+            ]
+        }
+    });
+}
+
+function goToSG(attr){
+    if(attr != null && attr!= undefined){
+        if(attr.hasOwnProperty('data')){
+            if(attr.data != null){
+                console.log(attr);
+                window.location.replace(attr.data);
+            }
+        }
+    }
 }

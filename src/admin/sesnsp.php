@@ -9,7 +9,7 @@ if ($_SESSION['user_data']['id'] == 5) {
 <html>
 
 <head>
-    <title>SBN</title>
+    <title>Nacionales</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta http-equiv="cache-control" content="no-cache" />
@@ -168,6 +168,7 @@ if ($_SESSION['user_data']['id'] == 5) {
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="validacion_victimas.php">Validación de víctimas</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="producto_estadistico.php">Producto estadístico</a></li>
                             <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sedena.php">Consulta SEDENA</a></li>
+                            <li onclick="goToSlideGenerator()"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a>Presentaciones</a></li>
                         <?php
                         }
                         ?>
