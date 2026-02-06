@@ -14,7 +14,7 @@ $return = createQuery(
         'conn' => $conn,
         'params' => array(),
         'options' => array("Scrollable" => SQLSRV_CURSOR_KEYSET),
-		'db_table' => '[dbo].[ses_key]',
+		'db_table' => '[nacionales].[ses_key]',
 		'data' => array(
 			((object) array(
 				'column' => 'ses_key',

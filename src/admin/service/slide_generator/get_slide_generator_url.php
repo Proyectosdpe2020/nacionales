@@ -13,7 +13,7 @@ if($conn && $ses_key != null){
 
     $sql = "SELECT TOP (1) [UrlID]
 				,[Ruta]
-			FROM [EJERCICIOS2].[dbo].[ses_key_url]";
+			FROM [nacionales].[ses_key_url]";
 
     $return = getGenericData(
         (object) array(
