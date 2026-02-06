@@ -8,18 +8,4 @@
  
  include("exportar.php");
 			
-?>						
-	
-						
-			
-			
-						
-						
-						
-						
-
-						
-	
-
-
-	
+?>
