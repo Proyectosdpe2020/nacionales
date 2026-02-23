@@ -59,7 +59,7 @@ function getCatalog(attr){
                     element_id: 'crimes-multiselect',
                     elements: response,
                     element_placeholder: 'selecciona',
-                    element_event_listener: ''
+                    element_event_listener: null
                 }
             });
 
@@ -79,6 +79,10 @@ function getCatalog(attr){
 }
 
 function loadSelect(attr){
+
+    let el = attr.element_attr.element_event_listener
+    delete attr.element_attr.element_event_listener
+
 	$.ajax({
 		url: attr.template_file,
 		type:'POST',
@@ -86,13 +90,20 @@ function loadSelect(attr){
 		data: attr.element_attr,
 		cache:false
 	}).done(function(response){
-		$('#'+attr.element_attr.element_id+'-section').html(response);
+		$('#'+attr.element_id_section).html(response);
+
+        const elementId = attr.element_attr.element_id;
+        const select = document.getElementById(elementId);
+
+        if(select && el){
+            const handlerFunction = window[el.handler];
+
+            if(typeof handlerFunction === "function"){
+                select.addEventListener(el.type, handlerFunction);
+            }
+        }
 	});
 }
-
-
-
-
 
 function showLoading(ind){
     if(ind)

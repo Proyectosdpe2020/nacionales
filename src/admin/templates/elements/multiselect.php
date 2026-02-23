@@ -1,11 +1,7 @@
 <?php
-    $element_id = $_POST['element_id'];
-    if(isset( $_POST['elements']))
-        $elements = $_POST['elements'];
-    else
-        $elements = null;
-    $element_placeholder = $_POST['element_placeholder'];
-    $element_event_listener = $_POST['element_event_listener'];
+    $element_id = isset($_POST['element_id']) ? $_POST['element_id'] : null;
+    $elements = isset($_POST['elements']) ? $_POST['elements'] : null;
+    $element_placeholder = isset($_POST['element_placeholder']) ? $_POST['element_placeholder'] : null;
 ?>
 
 <div id="<?php echo $element_id; ?>" class="multiselect button-group">

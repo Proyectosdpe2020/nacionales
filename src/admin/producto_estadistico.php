@@ -1,6 +1,6 @@
 <?php session_start();
 include('../../service/connection.php');
-if ($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_SESSION['user_data']['id'] == 8) {
+if ($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_SESSION['user_data']['id'] == 8 || $_SESSION['user_data']['id'] == 10) {
     header('Location: validacion_victimas.php');
     exit();
 }

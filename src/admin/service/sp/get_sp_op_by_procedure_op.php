@@ -78,7 +78,14 @@ $procedure_op = array(
 				'name' => '5.1 Procedimientos Pendientes de Concluir'
 			)
 		),
-		6 => array(),
+		6 => array(
+			array(
+				'id' => 1,
+				'name' => '6.1 Medidas cautelares y de protección'
+			)
+		),
+		7 => array(),
+		8 => array(),
 		9 => array(
 			array(
 				'id' => 1,
@@ -92,7 +99,10 @@ $procedure_op = array(
 				'id' => 3,
 				'name' => '9.3 Exploración especifica de caracteristicas de los inculpados en los delitos seleccionados registradas en las averiguaciones previas iniciadas en las carpetas de investigación abiertas'
 			)
-		)
+		),
+		10 => array(),
+		11 => array(),
+		12 => array()
 	),
 	3 => array(
 		1 => array(),

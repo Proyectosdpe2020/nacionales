@@ -65,8 +65,8 @@ $procedure_op = array(
 				'3-36-ImputadosPorDelitoYSexo'
 			),
 			8 => array(
-				/*'3-37-',
-				'3-38-'*/
+				'3-37-ActosDeInvestigacionSinControlJudicial',
+				'3-38-ActosDeInvestigacionConControlJudicial'
 			),
 			9 => array(
 				'3-42-DeterminacionesEnEtapadeInvestigacion'/*,
@@ -108,7 +108,14 @@ $procedure_op = array(
 				'5-4-ImputadosEnProcedimientosPendientesdeConcluir'
 			)
 		),
-		6 => array(),
+		6 => array(
+			1 => array(
+				'6-1-MedidaCautelarPorSexoDelImputado',
+				'6-2-MedidaCautelarPorDuracion'
+			)
+		),
+		7 => array(),
+		8 => array(),
 		9 => array(
 			1 => array(
 				'9-1-VictimasDelitosEspeciales'
@@ -127,7 +134,10 @@ $procedure_op = array(
 				'9-10-ImputadosPorEdadDelitosEspeciales',
 				'9-11-ImputadosPorNacionalidadDelitosEspeciales'
 			)
-		)
+		),
+		10 => array(),
+		11 => array(),
+		12 => array()
 	),
 	3 => array(
 		1 => array(),

@@ -524,6 +524,10 @@ var handle_data = {
 }
 
 function loadSelect(attr){
+
+    let el = attr.element_attr.element_event_listener
+    delete attr.element_attr.element_event_listener
+
 	$.ajax({
 		url: attr.template_file,
 		type:'POST',
@@ -532,6 +536,17 @@ function loadSelect(attr){
 		cache:false
 	}).done(function(response){
 		$('#'+attr.element_id_section).html(response);
+
+        const elementId = attr.element_attr.element_id;
+        const select = document.getElementById(elementId);
+
+        if(select && el){
+            const handlerFunction = window[el.handler];
+
+            if(typeof handlerFunction === "function"){
+                select.addEventListener(el.type, handlerFunction);
+            }
+        }
 	});
 }
 
