@@ -3,6 +3,10 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 	header('Location: validacion_victimas.php');
     exit();
 }
+else if($_SESSION['user_data']['id'] == 10){
+	header('Location: censo_procu.php');
+    exit();
+}
 ?>
 <!DOCTYPE HTML>
 <html>

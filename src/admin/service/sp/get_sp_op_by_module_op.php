@@ -26,11 +26,31 @@ $procedure_op = array(
 		),
 		array(
 			'id' => 6,
-			'name' => '6 Anexos'
+			'name' => '6 Medidas cautelares y de protección'
+		),
+		array(
+			'id' => 7,
+			'name' => '7 Ordenes judiciales'
+		),
+		array(
+			'id' => 8,
+			'name' => '8 Narcomenudeo'
 		),
 		array(
 			'id' => 9,
 			'name' => '9 Exploración especifica de delitos seleccionados'
+		),
+		array(
+			'id' => 10,
+			'name' => '10 Bienes robados'
+		),
+		array(
+			'id' => 11,
+			'name' => '11 Aseguramientos'
+		),
+		array(
+			'id' => 12,
+			'name' => '12 Anexos'
 		)
 	),
 	3 => array(
