@@ -229,7 +229,7 @@ function getSPOptions(attr){
             element_attr: {
                 element_id: 'subsection-search-option',
                 element_placeholder: ' -- Selecciona -- ',
-                element_event_listener: '',
+                element_event_listener: null,
                 elements: response
             },
             element_id_section: 'subsection-op-section'
@@ -285,7 +285,11 @@ function getSPOptionsByModule(attr){
             element_attr: {
                 element_id: 'main-search-option',
                 element_placeholder: ' -- Selecciona -- ',
-                element_event_listener: 'onchange="changeSPOptions()"',
+                element_event_listener: {
+					type: "change",
+					handler: "changeSPOptions",
+                    attr: null
+				},
                 elements: response
             },
             element_id_section: 'main-search-section'
@@ -297,5 +301,4 @@ function getSPOptionsByModule(attr){
         Swal.fire('error', 'Ha ocurrido un error inesperado, favor de contactar a DPE', 'error');
 
     });
-
 }

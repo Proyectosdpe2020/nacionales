@@ -113,7 +113,8 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 											<option value="2021">2021</option>
 											<option value="2022">2022</option>
 											<option value="2023">2023</option>
-											<option value="2024" selected>2024</option>
+											<option value="2024">2024</option>
+											<option value="2025" selected>2025</option>
 										</select>	
 
 									</div>
@@ -140,7 +141,7 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 							</header>
 							<ul>
 <?php
-								if($_SESSION['user_data']['id'] != 6){
+								if($_SESSION['user_data']['id'] != 6 && $_SESSION['user_data']['id'] != 10){
 ?>
 									
 									<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="senap.php">SENAP</a></li>
@@ -154,6 +155,11 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 									<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sedena.php">Consulta SEDENA</a></li>
 									<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sesnsp.php">SIIID</a></li>
 									<li onclick="goToSlideGenerator()"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a>Presentaciones</a></li>
+<?php
+								}
+								else if($_SESSION['user_data']['id'] == 10){
+?>
+									<li class="selected"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="#">Censo procuración de justicia</a></li>
 <?php
 								}
 								else{
