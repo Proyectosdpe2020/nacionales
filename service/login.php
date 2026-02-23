@@ -13,12 +13,13 @@ $user = cleanTextInjec($data['username']);
 $pass = hash('sha256', cleanTextInjec($data['password']));
 
 if($conn){
-    $sql = "SELECT TOP (1) [UsuarioBasesNacionalesID]
+    $sql = "SELECT TOP (1) [UsuarioBasesNacionalesID] AS 'id'
                 ,[Nombre]
                 ,[Paterno]
                 ,[Materno]
                 ,[Usuario]
                 ,[Contrasena]
+                ,[Tipo]
                 ,[Estatus]
             FROM [EJERCICIOS2].[dbo].[UsuariosBasesNacionales]
             WHERE [Usuario] = '$user'
@@ -45,15 +46,13 @@ if($conn){
             'state' => 'success',
             'data' => array(
                 'user' => array(
-                    'id' => $json['UsuarioBasesNacionalesID'],
+                    'id' => $json['id'],
                     'username' => $json['Usuario'],
                     'name' => $json['Nombre'],
                     'paternal_surname' => $json['Paterno'],
                     'maternal_surname' => $json['Materno'],
-                    'type' => 1,
-                    'permissions' => array(
-                        'senap' => 1
-                    )
+                    'type' => $json['Tipo'],
+                    'permissions' => getPerm($json['id'])
                 )
             )
         );
@@ -79,5 +78,9 @@ else{
     echo json_encode($return, JSON_FORCE_OBJECT);
 
     sqlsrv_close($conn);
+}
+
+function getPerm($id){
+    
 }
 ?>
