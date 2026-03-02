@@ -81,7 +81,11 @@ $procedure_op = array(
 		6 => array(
 			array(
 				'id' => 1,
-				'name' => '6.1 Medidas cautelares y de protección'
+				'name' => '6.1 Medidas cautelares decretadas'
+			),
+			array(
+				'id' => 2,
+				'name' => '6.2 Medidas de protección otorgadas'
 			)
 		),
 		7 => array(),

@@ -1,17 +1,3 @@
-$(document).ready(function(){
-
-    checkSession({
-        success: {
-            function: null
-        },
-        failed: {
-            function: redirectTo,
-            attr: '../../index.html'
-        },
-        location: '../../service/check_session.php'
-    });
-});
-
 function validateNumber(evt) {
     
 	var theEvent = evt || window.event;
@@ -1031,4 +1017,28 @@ function goToSG(attr){
             }
         }
     }
+}
+
+function setMenu(attr){
+
+	$.ajax({
+		url: attr.template_file,
+		type:'POST',
+		dataType: "html",
+        data: attr.element_attr,
+		cache:false
+	}).done(function(response){
+		$('#'+attr.element_id_section).html(response);
+/*
+        const elementId = attr.element_attr.element_id;
+        const select = document.getElementById(elementId);
+
+        if(select && el){
+            const handlerFunction = window[el.handler];
+
+            if(typeof handlerFunction === "function"){
+                select.addEventListener(el.type, handlerFunction);
+            }
+        }*/
+	});
 }

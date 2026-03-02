@@ -111,7 +111,13 @@ $procedure_op = array(
 		6 => array(
 			1 => array(
 				'6-1-MedidaCautelarPorSexoDelImputado',
-				'6-2-MedidaCautelarPorDuracion'
+				'6-2-MedidaCautelarPorDuracion',
+				'6-3-MedidaCautelarPorRangoDeEdadYSexo'
+			),
+			2 => array(
+				'6-4-MedidasDeProteccionPorSexoDeLaVictima',
+				'6-5-MedidasDeProteccionPorEdadDeLaVictima',
+				'6-6-MedidasDeProteccionPorRelacionConElImputado'
 			)
 		),
 		7 => array(),

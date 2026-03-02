@@ -1,7 +1,14 @@
-<?php session_start();
-if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_SESSION['user_data']['id'] == 8 || $_SESSION['user_data']['id'] == 10){
-	header('Location: validacion_victimas.php');
-    exit();
+<?php 
+session_start();
+if(isset($_SESSION['user_data'])){
+	if(!isset($_SESSION['user_data']['perms'][2])){
+		header('Location: '.$_SESSION['user_data']['perms'][array_keys($_SESSION['user_data']['perms'])[0]]->url);
+		exit();
+	}
+}
+else{
+	header('Location: ../../index.html');
+	exit();
 }
 ?>
 <!DOCTYPE HTML>
@@ -17,7 +24,6 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 		<link rel="stylesheet" href="assets/css/main.css?v=<?php echo time(); ?>"/>
 		<link rel="stylesheet" href="assets/css/styles.css?v=<?php echo time(); ?>"/>
 
-		<!--<link rel="stylesheet" href="../../css/styles.css">-->
 		<link rel="stylesheet" href="../../css/styles.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="../../css/dropdown-style.css?v=<?php echo time(); ?>">
 		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -43,7 +49,7 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 
 							<div onclick="myFunction()">
 								<div id="username"><?php echo $_SESSION['user_data']['name'].' '.$_SESSION['user_data']['paternal_surname'].' '.$_SESSION['user_data']['maternal_surname']; ?></div>
-								<div id="role">Administrador</div>
+								<div id="role"><?php echo $_SESSION['user_data']['type'] == 1 ? 'Administrador' : ''; ?></div>
 							</div>
 						</div>
 
@@ -93,24 +99,11 @@ if($_SESSION['user_data']['id'] == 4 || $_SESSION['user_data']['id'] == 5 || $_S
 						<header class="major">
 							<h2><a id="text-logo">FGE</a>&nbsp;&nbsp;&nbsp;BASES NACIONALES</h2>
 						</header>
-
-						<ul>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="senap.php">SENAP</a></li>
-							<li class="selected"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="#">Microdato</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="avp.php">Exportar base de datos histórica</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="norma_tecnica.php">Norma Técnica 38-15</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="censo_procu.php">Censo procuración de justicia</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="incidencia_sesesp.php">Incidencia delictiva SESESP</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="validacion_victimas.php">Validación de víctimas</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="producto_estadistico.php">Producto estadístico</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sedena.php">Consulta SEDENA</a></li>
-							<li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sesnsp.php">SIIID</a></li>
-							<li onclick="goToSlideGenerator()"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a>Presentaciones</a></li>
-						</ul>
+						<ul id="menu-list"></ul>
 					</nav>
 
 					<footer id="footer">
-						<!--<p>Sistema de gestion de reportes v1-21.08.04</p>-->
+						<p>Sistema de Bases Nacionales v1-26.02.26</p>
 					</footer>
 				</div>
 			</div>

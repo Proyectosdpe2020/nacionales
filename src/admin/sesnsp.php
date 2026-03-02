@@ -1,8 +1,14 @@
-<?php session_start();
-include('../../service/connection.php');
-if ($_SESSION['user_data']['id'] == 5) {
-    header('Location: validacion_victimas.php');
-    exit();
+<?php 
+session_start();
+if(isset($_SESSION['user_data'])){
+	if(!isset($_SESSION['user_data']['perms'][10])){
+		header('Location: '.$_SESSION['user_data']['perms'][array_keys($_SESSION['user_data']['perms'])[0]]->url);
+		exit();
+	}
+}
+else{
+	header('Location: ../../index.html');
+	exit();
 }
 ?>
 <!DOCTYPE HTML>
@@ -99,7 +105,7 @@ if ($_SESSION['user_data']['id'] == 5) {
                         <img onclick="myFunction()" src="../../assets/img/user.png" alt="">
                         <div onclick="myFunction()">
                             <div id="username"><?php echo $_SESSION['user_data']['name'] . ' ' . $_SESSION['user_data']['paternal_surname'] . ' ' . $_SESSION['user_data']['maternal_surname']; ?></div>
-                            <div id="role">Administrador</div>
+                            <div id="role"><?php echo $_SESSION['user_data']['type'] == 1 ? 'Administrador' : ''; ?></div>
                         </div>
                     </div>
 
@@ -154,26 +160,7 @@ if ($_SESSION['user_data']['id'] == 5) {
                     <header class="major">
                         <h2><a id="text-logo">FGE</a>&nbsp;&nbsp;&nbsp;BASES NACIONALES</h2>
                     </header>
-
-                    <ul>
-                        <?php
-                        if ($_SESSION['user_data']['id'] != 6) {
-                        ?>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="senap.php">SENAP</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="microdato.php">Microdato</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="avp.php">Exportar base de datos histórica</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="norma_tecnica.php">Norma Técnica 38-15</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="censo_procu.php">Censo procuración de justicia</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="incidencia_sesesp.php">Incidencia delictiva SESESP</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="validacion_victimas.php">Validación de víctimas</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="producto_estadistico.php">Producto estadístico</a></li>
-                            <li><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="sedena.php">Consulta SEDENA</a></li>
-                            <li onclick="goToSlideGenerator()"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a>Presentaciones</a></li>
-                        <?php
-                        }
-                        ?>
-                        <li class="selected"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<a href="#">SIIID</a></li>
-                    </ul>
+                    <ul id="menu-list"></ul>
                 </nav>
 
                 <footer id="footer">
