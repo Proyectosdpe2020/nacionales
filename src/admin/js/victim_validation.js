@@ -1,7 +1,22 @@
-//const { data } = require("jquery");
+$(document).ready(function(){
 
-$(document).ready(function(){ 
-    //$( "#main-search-search-year" ).datepicker({dateFormat: 'yy'});
+    checkSession({
+        success: {
+            function: setMenu,
+            attr: {
+                template_file: 'templates/other/menu.php',
+                element_id_section: 'menu-list',
+                element_attr: {
+                    index: 7
+                }
+            }
+        },
+        failed: {
+            function: redirectTo,
+            attr: '../../index.html'
+        },
+        location: '../../service/check_session.php'
+    });
 });
 
 function getVictims(attr){

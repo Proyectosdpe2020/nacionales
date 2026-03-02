@@ -18,12 +18,16 @@ function login(){
 
         if(response.state != "fail"){
 
-            if(response.data != null){
-                setSessionVariables('user', response.data.user);
-                redirectTo('src/admin/senap.php');
+            if(response.state != "success"){
+                Swal.fire('Usuario incorrecto', 'Intentelo de nuevo!', 'warning');
             }
             else{
-                Swal.fire('Usuario incorrecto', 'Intentelo de nuevo!', 'warning');
+                if(response.data != null){
+                    redirectTo(response.data.reedirect);
+                }
+                else{
+                    Swal.fire('Usuario incorrecto', 'Intentelo de nuevo!', 'warning');
+                }
             }
         }
         else{

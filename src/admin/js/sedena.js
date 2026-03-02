@@ -2,7 +2,14 @@ $(document).ready(function(){
 
     checkSession({
         success: {
-            function: null
+            function: setMenu,
+            attr: {
+                template_file: 'templates/other/menu.php',
+                element_id_section: 'menu-list',
+                element_attr: {
+                    index: 9
+                }
+            }
         },
         failed: {
             function: redirectTo,
