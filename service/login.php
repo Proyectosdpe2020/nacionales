@@ -199,7 +199,7 @@ function getSections($attr){
 			'text' => 'SIIID'
 		),
 		11 => (object) array(
-			'url'  => 'senap.php',
+			'url'  => 'goToSlideGenerator()',
 			'type' => 'js',
 			'text' => 'Presentaciones'
 		)
