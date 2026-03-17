@@ -89,7 +89,16 @@ $procedure_op = array(
 			)
 		),
 		7 => array(),
-		8 => array(),
+		8 => array(
+			array(
+				'id' => 1,
+				'name' => '8.1 Narcomenudeo por su grado de consumación'
+			),
+			array(
+				'id' => 2,
+				'name' => '8.2 Narcomenudeo por genero del imputado'
+			)
+		),
 		9 => array(
 			array(
 				'id' => 1,
