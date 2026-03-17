@@ -121,7 +121,28 @@ $procedure_op = array(
 			)
 		),
 		7 => array(),
-		8 => array(),
+		8 => array(
+			1 => array(
+				'8-1-DrogaPorTipoYGradoDeConsumacion',
+				'8-2-DrogaPorTipoYGradoDeConsumacion',
+				'8-3-DrogaPorGramajeYGradoDeConsumacion-OpioAmapola',
+				'8-4-DrogaPorGramajeYGradoDeConsumacion-Heroina',
+				'8-5-DrogaPorGramajeYGradoDeConsumacion-Marihuana',
+				'8-6-DrogaPorGramajeYGradoDeConsumacion-Cocaina',
+				'8-7-DrogaPorGramajeYGradoDeConsumacion-LSD',
+				'8-8-DrogaPorGramajeYGradoDeConsumacion-Metanfetamina'
+			),
+			2 => array(
+				'8-9-DrogaPorTipoYSexo',
+				'8-10-DrogaPorTipoYSexo',
+				'8-11-DrogaPorGramajeYSexo-OpioAmapola',
+				'8-12-DrogaPorGramajeYSexo-Heroina',
+				'8-13-DrogaPorGramajeYSexo-Marihuana',
+				'8-14-DrogaPorGramajeYSexo-Cocaina',
+				'8-15-DrogaPorGramajeYSexo-LSD',
+				'8-16-DrogaPorGramajeYSexo-Metanfetamina'
+			)
+		),
 		9 => array(
 			1 => array(
 				'9-1-VictimasDelitosEspeciales'
